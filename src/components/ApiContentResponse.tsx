@@ -1,22 +1,55 @@
-import React from 'react'
-import axios, { AxiosRequestHeaders } from 'axios'
+import React, { useState } from 'react'
+import axios from 'axios'
 import dotenv from 'dotenv'
 import './ApiContentResponse.css'
 
 function ApiContentResponse() {
-  try {
-    const fetchData = async () => {
+  const [data, setData] = useState({})
+
+  const fetchData = async () => {
+    try {
       const apiKey = process.env.REACT_APP_NASA_API_KEY
       const url: string = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
-      const apiResponse: AxiosRequestHeaders = await axios.get(url)
+      const apiResponse = await axios.get(url)
 
-      // Display or do something w/ data
-      console.log(apiResponse)
+      if (apiResponse.status === 200) {
+        const apiData = apiResponse.data
+        console.log(apiData)
+
+        displayRequestedData(apiData)
+      } else alert('Nasa seems to be having an issue with their server.')
+    } catch (err) {
+      console.log('Nasa seems to be having an issue with their server.')
     }
-    fetchData()
-  } catch (err: any) {
-    throw new Error(err)
   }
+
+  const displayRequestedData = (data: any) => {
+    const date = document.querySelector('#date') as HTMLParagraphElement
+    const title = document.querySelector('#title') as HTMLHeadingElement
+    const copyright = document.querySelector('#copyright') as HTMLElement
+    const information = document.querySelector(
+      '#description'
+    ) as HTMLParagraphElement
+    const currentDate = new Date().toISOString().slice(0, 10) as string
+    const mediaSection = document.querySelector(
+      '#media-section'
+    ) as HTMLParagraphElement
+    const imageSection = `<a id="hdimg" href="" target="_blank" rel="noopener">
+                            <div class="image-div"> 
+                                <img id="image_of_the_day" src="" alt="image-by-nasa"> 
+                            </div>
+                          </a>`
+    const videoSection = `<div class="video-div"> 
+                            <iframe id="videoLink" src="" frameborder="0"></iframe>
+                          </div>`
+
+    // Display Title, Date, and Media Description
+    title.innerHTML = data.title
+    date.innerHTML = data.date
+    copyright.innerHTML = data.copyright
+  }
+
+  fetchData()
 
   return (
     <>
