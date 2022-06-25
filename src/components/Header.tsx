@@ -8,8 +8,12 @@ function Header() {
         <div className="title-wrapper">
           <h1 className="title">Astronomical Picture of the Day</h1>
           <p>
-            Explore the{' '}
-            <a href="https://apod.nasa.gov/apod/archivepixFull.html">
+            Explore the
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://apod.nasa.gov/apod/archivepixFull.html"
+            >
               Universe
             </a>
             !
@@ -38,8 +42,8 @@ function Header() {
             </button>
           </div>
         </form>
+        <hr></hr>
       </header>
-      <hr></hr>
     </>
   )
 }

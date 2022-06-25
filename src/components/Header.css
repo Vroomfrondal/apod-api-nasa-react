@@ -6,9 +6,19 @@
   font-family: 'Lato', sans-serif;
 }
 
-body {
+a:hover {
+  color: pink;
+}
+
+a:after {
+  color: aqua;
+}
+
+header {
   margin: 0;
-  background-color: black;
+  height: 24vh;
+  background-color: #121212;
+  color: #fffffff4;
 }
 
 .title-wrapper {
@@ -31,15 +41,18 @@ body {
   margin-left: 0.5rem;
 }
 
-/* Input styling & animation */
+/* Button Styling Below */
+
 .random-picture-button,
 .reset-picture-button {
   position: relative;
   background-color: #252525;
   border-radius: 3em;
+  border-color: whitesmoke;
   font-size: 11px;
   color: white;
   padding: 0.6em 0.5em;
+  margin-top: 0.5em;
   cursor: pointer;
   user-select: none;
   text-align: center;
