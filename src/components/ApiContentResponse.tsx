@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import dotenv from 'dotenv'
 import './ApiContentResponse.css'
 
 function ApiContentResponse() {
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   //prettier-ignore
   const fetchData = async () => {
     try {
@@ -24,11 +28,11 @@ function ApiContentResponse() {
 
   //prettier-ignore
   const displayRequestedData = (data: any) => {
-    const dateEl = document.querySelector('#date') as HTMLParagraphElement
-    const titleEl = document.querySelector('#title') as HTMLHeadingElement
-    const copyrightEl = document.querySelector('#copyright') as HTMLElement
-    const photoExplanationEl = document.querySelector('#description') as HTMLParagraphElement
     const todaysDate = new Date().toISOString().slice(0, 10) as string
+    const dateEl = document.querySelector('#media-date') as HTMLParagraphElement
+    const titleEl = document.querySelector('#media-title') as HTMLHeadingElement
+    const copyrightEl = document.querySelector('#media-copyright') as HTMLElement
+    const photoExplanationEl = document.querySelector('#media-description') as HTMLParagraphElement
     const mediaSectionEl = document.querySelector('#media-section') as HTMLParagraphElement
     const imageSectionEl = `<a id="img-new-tab" href="" target="_blank" rel="noopener">
                               <div class="image-div"> 
@@ -39,42 +43,45 @@ function ApiContentResponse() {
                               <iframe id="videoLink" src="" frameborder="0"></iframe>
                             </div>` as any
 
-    // Title, Date, Media Copyright, Photo Explanation
+    // Title, Date, Photo Explanation
     titleEl.innerHTML = data.title
     dateEl.innerHTML = data.date
-    copyrightEl.innerHTML = data.copyright
     photoExplanationEl.innerHTML = data.explanation
 
-    // Dynamically supply HTML element based on video or img API response
+    // Give credit to NASA if copyright isn't present
+    if (data.copyright === undefined) copyrightEl.innerHTML = 'NASA'
+    else copyrightEl.innerHTML = data.copyright
+
+    // Dynamically supply an HTML element based on if API response is a video or img
     if (data.media_type === 'video') {
       mediaSectionEl.innerHTML = videoSectionEl
       videoSectionEl!.src = data.url
     } else {
       mediaSectionEl.innerHTML = imageSectionEl
-      document.querySelector<HTMLAnchorElement>('#img-new-tab')!.href =
-        data.hdurl
-      document.querySelector<HTMLImageElement>('#image_of_the_day')!.src =
-        data.url
+      document.querySelector<HTMLAnchorElement>('#img-new-tab')!.href = data.hdurl
+      document.querySelector<HTMLImageElement>('#image_of_the_day')!.src = data.url
     }
   }
-
-  fetchData()
 
   return (
     <>
       <section className="media-details-flex-wrapper">
-        <h2 id="title">Loading...</h2>
-        <p className='date' id="date">date</p>
-        <p className='credits-wrapper' id="credits-wrapper">Media courtsey:</p>
-        <p id="copyright">NASA</p>
+        <h2 className="media-title" id="media-title">
+          Loading...
+        </h2>
+        <p className="media-date" id="media-date"></p>
+        <p className="credits-wrapper" id="credits-wrapper">
+          Media courtsey:
+        </p>
+        <p id="media-copyright"></p>
       </section>
 
-      <section className='media-section' id="media-section">
+      <section className="media-section-wrapper" id="media-section">
         {/* <!-- Media Response from API goes here --> */}
       </section>
 
-      <div className="description-div">
-        <p id="description"></p>
+      <div className="description-wrapper">
+        <p className="media-description" id="media-description"></p>
       </div>
     </>
   )

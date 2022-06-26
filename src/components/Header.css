@@ -18,7 +18,8 @@ header {
   margin: 0;
   height: auto;
   background-color: black;
-  color: #fffffff4;
+  color: #f5f0f0f4;
+  font-size: 1.2vw;
 }
 
 .title-wrapper {
@@ -26,7 +27,7 @@ header {
   flex-direction: column;
   line-height: 1px;
   align-items: center;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 }
 
 .inputs-for-header {
@@ -46,9 +47,9 @@ header {
   position: relative;
   background-color: #252525;
   border-radius: 3em;
-  border-color: whitesmoke;
+  border-color: #f5f0f0f4;
   font-size: 11px;
-  color: white;
+  color: #f5f0f0f4;
   padding: 0.6em 0.5em;
   margin-top: 0.5em;
   cursor: pointer;
@@ -81,12 +82,12 @@ header {
   height: 100%;
   opacity: 0;
   transition: all 0.5s;
-  box-shadow: 0 0 10px 40px white;
+  box-shadow: 0 0 10px 40px #f5f0f0f4;
 }
 
 .random-picture-button:active:after,
 .reset-picture-button:active:after {
-  box-shadow: 0 0 0 0 white;
+  box-shadow: 0 0 0 0 #f5f0f0f4;
   position: absolute;
   border-radius: 4em;
   left: 0;
