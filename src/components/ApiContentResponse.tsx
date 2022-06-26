@@ -64,12 +64,12 @@ function ApiContentResponse() {
     <>
       <section className="media-details-flex-wrapper">
         <h2 id="title">Loading...</h2>
-        <p id="date">date</p>
-        <p id="credits-wrapper">Media courtsey:</p>
+        <p className='date' id="date">date</p>
+        <p className='credits-wrapper' id="credits-wrapper">Media courtsey:</p>
         <p id="copyright">NASA</p>
       </section>
 
-      <section className="media" id="media-section">
+      <section className='media-section' id="media-section">
         {/* <!-- Media Response from API goes here --> */}
       </section>
 

@@ -17,9 +17,8 @@ a:after {
 header {
   margin: 0;
   height: auto;
-  background-color: #121212;
+  background-color: black;
   color: #fffffff4;
-
 }
 
 .title-wrapper {
