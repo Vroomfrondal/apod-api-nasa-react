@@ -37,7 +37,7 @@ function Header() {
             <button className="random-picture-button" id="random-day-generator">
               Random
             </button>
-            <button className="reset-picture-button" id="reset-button">
+            <button className="reset-picture-button" id="reset-button" type='reset' >
               Reset
             </button>
           </div>

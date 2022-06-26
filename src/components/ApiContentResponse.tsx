@@ -1,24 +1,27 @@
 import React, { useEffect } from 'react'
+import dayjs from 'dayjs'
 import axios from 'axios'
 import dotenv from 'dotenv'
 import './ApiContentResponse.css'
 
 function ApiContentResponse() {
+  // Default onload API call
   useEffect(() => {
-    fetchData()
+    fetchData(baseUrl, todaysDate)
   }, [])
 
+  const apiKey = process.env.REACT_APP_NASA_API_KEY!
+  const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
+  const todaysDate = dayjs().format('YYYY-MM-DD')
+
   //prettier-ignore
-  const fetchData = async () => {
+  const fetchData = async (url: string, date: Date | string) => {
     try {
-      const apiKey = process.env.REACT_APP_NASA_API_KEY
-      const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
       const apiResponse = await axios.get(url)
 
       if (apiResponse.status === 200) {
         const apiData = apiResponse.data
         console.log(apiData)
-
         displayRequestedData(apiData)
       } else throw new Error('Nasa seems to be having an issue with their server.')
     } catch (err) {
@@ -28,7 +31,6 @@ function ApiContentResponse() {
 
   //prettier-ignore
   const displayRequestedData = (data: any) => {
-    const todaysDate = new Date().toISOString().slice(0, 10) as string
     const dateEl = document.querySelector('#media-date') as HTMLParagraphElement
     const titleEl = document.querySelector('#media-title') as HTMLHeadingElement
     const copyrightEl = document.querySelector('#media-copyright') as HTMLElement
@@ -48,7 +50,7 @@ function ApiContentResponse() {
     dateEl.innerHTML = data.date
     photoExplanationEl.innerHTML = data.explanation
 
-    // Give credit to NASA if copyright isn't present
+    // Credit to NASA if media doesn't have author-credits
     if (data.copyright === undefined) copyrightEl.innerHTML = 'NASA'
     else copyrightEl.innerHTML = data.copyright
 
