@@ -7,20 +7,62 @@
 }
 
 body {
+  background-image: url(../images/bg.jpg);
+  background-size: 70%;
+  width: 100%;
   margin: 0;
 }
 
+/* Title, Date, media-credits, image-description below */
 .media-details-flex-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  line-height: 0;
-  padding-top: .5em;
+  text-align: center;
+  line-height: 0rem;
+  padding: 0.5rem;
+  color: #f5f0f0f4;
+  opacity: 95%;
+  font-size: 1.9vh;
 }
 
-/* Responsive Daily Images and Videos from API response */
+.media-title {
+  margin-top: 0.4em;
+}
 
-.media {
+.media-date {
+  margin: 1em;
+}
+
+.credits-wrapper {
+  margin: 0.5em;
+}
+
+.description-wrapper {
+  margin: 0.1rem auto 1rem;
+  width: 70%;
+}
+
+.media-description {
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.9rem;
+  border: 1px solid #f5f0f0f4;
+  border-radius: 0.5rem;
+  background-color: rgb(15, 15, 15);
+  color: #dcd9d9f4;
+  font-size: 2vh;
+}
+
+/* Responsive Images and Videos from API response below */
+.media-section-wrapper {
   display: flex;
   justify-content: center;
+}
+
+.image-div {
+  display: inline-flex;
+  justify-content: center;
+  border: 1px solid #fffffff4;
+  height: 80vh;
+  width: auto;
 }
