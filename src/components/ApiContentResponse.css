@@ -8,5 +8,19 @@
 
 body {
   margin: 0;
-  background-color: black;
+}
+
+.media-details-flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0;
+  padding-top: .5em;
+}
+
+/* Responsive Daily Images and Videos from API response */
+
+.media {
+  display: flex;
+  justify-content: center;
 }
