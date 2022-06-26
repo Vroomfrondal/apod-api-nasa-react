@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import './ApiContentResponse.css'
 
 function ApiContentResponse() {
+  //prettier-ignore
   const fetchData = async () => {
     try {
       const apiKey = process.env.REACT_APP_NASA_API_KEY
@@ -21,6 +22,7 @@ function ApiContentResponse() {
     }
   }
 
+  //prettier-ignore
   const displayRequestedData = (data: any) => {
     const dateEl = document.querySelector('#date') as HTMLParagraphElement
     const titleEl = document.querySelector('#title') as HTMLHeadingElement
@@ -60,9 +62,9 @@ function ApiContentResponse() {
 
   return (
     <>
-      <section className="media-details">
+      <section className="media-details-flex-wrapper">
         <h2 id="title">Loading...</h2>
-        <p id="date"></p>
+        <p id="date">date</p>
         <p id="credits-wrapper">Media courtsey:</p>
         <p id="copyright">NASA</p>
       </section>

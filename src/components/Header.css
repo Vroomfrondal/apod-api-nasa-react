@@ -16,9 +16,10 @@ a:after {
 
 header {
   margin: 0;
-  height: 24vh;
+  height: auto;
   background-color: #121212;
   color: #fffffff4;
+
 }
 
 .title-wrapper {
@@ -33,7 +34,6 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
-
   padding-top: 0.5rem;
 }
 
@@ -42,7 +42,6 @@ header {
 }
 
 /* Button Styling Below */
-
 .random-picture-button,
 .reset-picture-button {
   position: relative;
