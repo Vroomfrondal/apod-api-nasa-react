@@ -30,16 +30,28 @@ header {
   padding-top: 0.5rem;
 }
 
-.inputs-for-header {
+.header-inputs {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
   padding-top: 0.5rem;
 }
 
-.label-input {
-  margin-left: 0.5rem;
+.datepicker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+/* .react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
 
 /* Button Styling Below */
 .random-picture-button,

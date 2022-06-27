@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import dayjs from 'dayjs'
+import DatePicker from 'react-datepicker'
 import './Header.css'
+import 'react-datepicker/dist/react-datepicker.css'
+import ApiContentResponse from './ApiContentResponse'
 
 function Header() {
+  const [startDate, setStartDate] = useState(new Date())
+
+  const handleDateSelect = () => {
+    const datepicker = document.querySelector(
+      '#datepicker'
+    )! as HTMLInputElement
+
+    console.log(startDate)
+    // console.log(datepicker.value)
+    // setStartDate(datepicker.value)
+  }
+
   return (
     <>
       <header>
@@ -21,23 +37,29 @@ function Header() {
           <p>A picture or video of the day supplied by NASAs Apod Api.</p>
         </div>
 
-        <form className="inputs-for-header">
-          <label htmlFor="datepicker">
-            Or pick a past date:
-            <input
-              className="label-input"
-              id="datepicker"
-              type="date"
-              min=""
-              max=""
-            />
-          </label>
+        <div className="datepicker">
+          <label>Or pick a past date:</label>
+          <DatePicker
+            placeholderText="Pick a date."
+            id="datepicker"
+            // onSelect={handleDateSelect}
+            className="datepicker"
+            selected={startDate}
+            onChange={handleDateSelect}
+            // dateFormat="yyyy-mm-dd"
+          />
+        </div>
 
+        <form className="header-inputs">
           <div className="button-container">
             <button className="random-picture-button" id="random-day-generator">
               Random
             </button>
-            <button className="reset-picture-button" id="reset-button" type='reset' >
+            <button
+              className="reset-picture-button"
+              id="reset-button"
+              type="reset"
+            >
               Reset
             </button>
           </div>

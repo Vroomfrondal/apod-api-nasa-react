@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 import './ApiContentResponse.css'
 
 function ApiContentResponse() {
-  // Default onload API call
+  // Default API call
   useEffect(() => {
     fetchData(baseUrl, todaysDate)
   }, [])
