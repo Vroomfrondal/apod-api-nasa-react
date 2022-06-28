@@ -1,21 +1,14 @@
 import React, { useState } from 'react'
-import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 import './Header.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import ApiContentResponse from './ApiContentResponse'
 
 function Header() {
-  const [startDate, setStartDate] = useState(new Date())
+  const [selectedDate, setSelectedDate] = useState(null)
 
-  const handleDateSelect = () => {
-    const datepicker = document.querySelector(
-      '#datepicker'
-    )! as HTMLInputElement
-
-    console.log(startDate)
-    // console.log(datepicker.value)
-    // setStartDate(datepicker.value)
+  const handleDateChange = (date: any) => {
+    setSelectedDate(date)
   }
 
   return (
@@ -42,11 +35,10 @@ function Header() {
           <DatePicker
             placeholderText="Pick a date."
             id="datepicker"
-            // onSelect={handleDateSelect}
             className="datepicker"
-            selected={startDate}
-            onChange={handleDateSelect}
-            // dateFormat="yyyy-mm-dd"
+            selected={selectedDate}
+            onChange={handleDateChange}
+            dateFormat="yyyy-MM-dd"
           />
         </div>
 
