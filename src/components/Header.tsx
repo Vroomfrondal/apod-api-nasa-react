@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import './Header.css'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -7,9 +7,10 @@ import ApiContentResponse from './ApiContentResponse'
 function Header() {
   const [selectedDate, setSelectedDate] = useState(null)
 
-  const handleDateChange = (date: any) => {
-    setSelectedDate(date)
-  }
+  useEffect(() => {
+    console.log('header hook ran')
+    ApiContentResponse
+  }, [selectedDate]) // everytime this value changes, do something.
 
   return (
     <>
@@ -33,11 +34,13 @@ function Header() {
         <div className="datepicker">
           <label>Or pick a past date:</label>
           <DatePicker
-            placeholderText="Pick a date."
-            id="datepicker"
+            placeholderText="Select a date after 2001."
             className="datepicker"
             selected={selectedDate}
-            onChange={handleDateChange}
+            // onChange={handleDateChange}
+            onChange={(date: any) => {
+              setSelectedDate(date)
+            }}
             dateFormat="yyyy-MM-dd"
           />
         </div>

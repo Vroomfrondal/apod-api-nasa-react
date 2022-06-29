@@ -1,18 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import axios from 'axios'
 import dotenv from 'dotenv'
 import './ApiContentResponse.css'
 
-function ApiContentResponse() {
+function ApiContentResponse(props: any) {
   // Default API call
   useEffect(() => {
+    console.log('ApiContent default hook ran')
     fetchData(baseUrl, todaysDate)
-  }, [])
+  }, []) // everytime value in array changes, do something.
+
+  // TODO: Work on this
+  // Calendar Input Side effect
+  useEffect(() => {
+    console.log('Fetching Data for calendar input...')
+
+    fetchData(baseUrl, userDateInput)
+  }, [props.date])
 
   const apiKey = process.env.REACT_APP_NASA_API_KEY!
   const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
   const todaysDate = dayjs().format('YYYY-MM-DD')
+  const userDateInput = dayjs(props.date).format('YYYY-MM-DD')
 
   //prettier-ignore
   const fetchData = async (url: string, date: Date | string) => {
