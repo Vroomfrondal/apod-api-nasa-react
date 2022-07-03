@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
+import dayjs from 'dayjs'
 import './Header.css'
 import 'react-datepicker/dist/react-datepicker.css'
-import ApiContentResponse from './ApiContentResponse'
+import { fetchData } from '../api/fetchAndDisplayNasaData'
 
 function Header() {
   const [selectedDate, setSelectedDate] = useState(null)
 
   useEffect(() => {
-    console.log('header hook ran')
-    ApiContentResponse
-  }, [selectedDate]) // everytime this value changes, do something.
+    const apiKey = process.env.REACT_APP_NASA_API_KEY!
+    const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
+    const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`!
+
+    fetchData(dateUrl)
+  }, [selectedDate]) // everytime selectedDate changes, recall function from ApiContentResponse
 
   return (
     <>
@@ -37,9 +41,9 @@ function Header() {
             placeholderText="Select a date after 2001."
             className="datepicker"
             selected={selectedDate}
-            // onChange={handleDateChange}
             onChange={(date: any) => {
               setSelectedDate(date)
+              console.log(date)
             }}
             dateFormat="yyyy-MM-dd"
           />
