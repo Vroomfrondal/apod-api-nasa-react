@@ -43,20 +43,16 @@ header {
   padding-top: 0.5rem;
 }
 
-/* React Datepicker Custom Classes */
+/* React Datepicker */
 .datepicker-input-wrapper {
-  border: 2px solid blue;
-  text-align: center;
-  width: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   position: relative;
 }
 
-.datepicker-custom-class {
-  border: 2px solid red;
+.datepicker-input-custom-text {
+  text-align: center;
 }
 
 /* Button Styling Below */

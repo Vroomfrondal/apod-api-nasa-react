@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import DatePicker, { CalendarContainer } from 'react-datepicker'
+import DatePicker from 'react-datepicker'
 import dayjs from 'dayjs'
 import './Header.css'
-// import 'react-datepicker/dist/react-datepicker.css'
 import { fetchData } from '../api/fetchAndDisplayNasaData'
 
 function Header() {
@@ -39,16 +38,18 @@ function Header() {
         <div className="datepicker-input-wrapper">
           <label>Or pick a past date:</label>
           <DatePicker
-            placeholderText="Select a date after 2001."
+            placeholderText="Previous dates only."
             selected={selectedDate}
             onChange={(date: any) => {
               setSelectedDate(date)
             }}
             dateFormat="yyyy-MM-dd"
-            className="datepicker-custom-class"
+            className="datepicker-input-custom-text"
             isClearable
             showYearDropdown
             closeOnScroll={(e) => e.target === document}
+            minDate={new Date('1995-06-16')}
+            maxDate={new Date()}
           />
         </div>
 
