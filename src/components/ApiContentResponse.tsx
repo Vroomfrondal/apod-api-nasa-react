@@ -4,7 +4,7 @@ import { fetchData } from '../api/fetchAndDisplayNasaData'
 import './ApiContentResponse.css'
 
 function ApiContentResponse() {
-  // Default API call
+  // Default API call onload
   useEffect(() => {
     const apiKey = process.env.REACT_APP_NASA_API_KEY!
     const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
@@ -25,7 +25,7 @@ function ApiContentResponse() {
       </section>
 
       <section className="media-section-wrapper" id="media-section">
-        {/* <!-- Media Response from API goes here --> */}
+        {/* <!-- Media Response from API dynamically sets here --> */}
       </section>
 
       <div className="description-wrapper">

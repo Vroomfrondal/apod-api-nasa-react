@@ -22,7 +22,7 @@ body {
   padding: 0.5rem;
   color: #f5f0f0f4;
   opacity: 95%;
-  font-size: 1.9vh;
+  font-size: 0.9em;
 }
 
 .media-title {
@@ -40,6 +40,7 @@ body {
 .description-wrapper {
   margin: 0.1rem auto 1rem;
   width: 70%;
+  padding-bottom: 1rem;
 }
 
 .media-description {
@@ -50,7 +51,7 @@ body {
   border-radius: 0.5rem;
   background-color: rgb(15, 15, 15);
   color: #dcd9d9f4;
-  font-size: 2vh;
+  font-size: 1em;
 }
 
 /* Responsive Images and Videos from API response below */
@@ -63,6 +64,6 @@ body {
   display: inline-flex;
   justify-content: center;
   border: 1px solid #fffffff4;
-  height: 80vh;
-  width: auto;
+  height: 60vh;
+  /* width: auto; */
 }

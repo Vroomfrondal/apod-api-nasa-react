@@ -46,13 +46,15 @@ header {
 /* React Datepicker */
 .datepicker-input-wrapper {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: center;
   align-items: center;
   position: relative;
 }
 
 .datepicker-input-custom-text {
   text-align: center;
+  margin-left: 1em;
 }
 
 /* Button Styling Below */
@@ -65,7 +67,7 @@ header {
   font-size: 11px;
   color: #f5f0f0f4;
   padding: 0.6em 0.5em;
-  margin-top: 0.5em;
+  margin-top: 0.1em;
   cursor: pointer;
   user-select: none;
   text-align: center;
