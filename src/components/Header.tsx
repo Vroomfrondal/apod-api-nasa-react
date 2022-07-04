@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import dayjs from 'dayjs'
 import './Header.css'
-import 'react-datepicker/dist/react-datepicker.css'
 import { fetchData } from '../api/fetchAndDisplayNasaData'
 
 function Header() {
@@ -11,7 +10,8 @@ function Header() {
   useEffect(() => {
     const apiKey = process.env.REACT_APP_NASA_API_KEY!
     const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
-    const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`!
+    const dateUrl =
+      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`!
 
     fetchData(dateUrl)
   }, [selectedDate]) // everytime selectedDate changes, recall function from ApiContentResponse
@@ -35,17 +35,21 @@ function Header() {
           <p>A picture or video of the day supplied by NASAs Apod Api.</p>
         </div>
 
-        <div className="datepicker">
+        <div className="datepicker-input-wrapper">
           <label>Or pick a past date:</label>
           <DatePicker
-            placeholderText="Select a date after 2001."
-            className="datepicker"
+            placeholderText="Previous dates only."
             selected={selectedDate}
             onChange={(date: any) => {
               setSelectedDate(date)
-              console.log(date)
             }}
             dateFormat="yyyy-MM-dd"
+            className="datepicker-input-custom-text"
+            isClearable
+            showYearDropdown
+            closeOnScroll={(e) => e.target === document}
+            minDate={new Date('1995-06-16')}
+            maxDate={new Date()}
           />
         </div>
 
