@@ -24,7 +24,7 @@ header {
   height: auto;
   background-color: black;
   color: #f5f0f0f4;
-  font-size: 1.2vw;
+  font-size: 1em;
 }
 
 .title-wrapper {
@@ -43,20 +43,21 @@ header {
   padding-top: 0.5rem;
 }
 
-.datepicker {
+/* React Datepicker Custom Classes */
+.datepicker-input-wrapper {
+  border: 2px solid blue;
+  text-align: center;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-/* .react-datepicker-wrapper,
-.react-datepicker__input-container,
-.react-datepicker__input-container input {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+.datepicker-custom-class {
+  border: 2px solid red;
+}
 
 /* Button Styling Below */
 .random-picture-button,
