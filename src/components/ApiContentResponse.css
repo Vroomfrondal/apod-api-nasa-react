@@ -1,5 +1,6 @@
 .body-container {
-  height: 75vh;
+  height: fit-content;
+  padding-bottom: 2rem;
 }
 
 /* Body-header containing Image Title, Date, Author-credits */
@@ -28,7 +29,6 @@
 
 /* Body Starts here! */
 .horizontal-body-flex-container {
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -42,6 +42,7 @@
   align-items: center;
   width: 40vw;
   margin-right: 6%;
+  margin-left: 1rem;
 }
 
 .description {
@@ -63,13 +64,16 @@
   display: flex;
   align-items: center;
   padding-left: 8%;
+  height: auto;
+  padding-right: 1em;
 }
 
-.image-div {
+.image-wrapper {
   display: flex;
   justify-content: center;
   border: 1px solid #fffffff4;
   height: 45vh;
+  max-width: auto;
 }
 
 /*
@@ -89,7 +93,7 @@
     padding: 0;
   }
 
-  .image-div {
+  .image-wrapper {
     display: flex;
     justify-content: center;
     border: 1px solid #fffffff4;

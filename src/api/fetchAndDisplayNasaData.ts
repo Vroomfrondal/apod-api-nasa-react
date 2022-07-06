@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 
-
 const fetchData = async (url: string) => {
   try {
     const apiResponse = await axios.get(url)
@@ -17,7 +16,6 @@ const fetchData = async (url: string) => {
   }
 }
 
-
 const displayRequestedData = (data: any) => {
   const dateEl = document.querySelector('#media-date') as HTMLParagraphElement
   const titleEl = document.querySelector('#media-title') as HTMLHeadingElement
@@ -28,15 +26,16 @@ const displayRequestedData = (data: any) => {
   const mediaSectionEl = document.querySelector(
     '#media-section'
   ) as HTMLParagraphElement
-  const imageSectionEl =
-    `<a id="img-new-tab" href="" target="_blank" rel="noopener">
-                              <div class="image-div"> 
-                                  <img id="image_of_the_day" src="" alt="image-by-nasa"> 
-                              </div>
-                            </a>` as any
+  const imageSectionEl = `<div class="main-image-container">
+                              <a id="img-new-tab" href="" target="_blank" rel="noopener">
+                                <div class="image-wrapper"> 
+                                    <img id="image_of_the_day" src="" alt="image-by-nasa"> 
+                                </div>
+                              </a>
+                          <div>` as any
   const videoSectionEl = `<div class="video-div"> 
                               <iframe id="videoLink" src="" frameborder="0"></iframe>
-                            </div>` as any
+                          </div>` as any
 
   // Title, Date, Photo Explanation
   titleEl.innerHTML = data.title
@@ -50,7 +49,7 @@ const displayRequestedData = (data: any) => {
   // Dynamically supply an HTML element based on if API response is a video or img
   if (data.media_type === 'video') {
     mediaSectionEl.innerHTML = videoSectionEl
-    videoSectionEl!.src = data.url
+    document.querySelector<HTMLVideoElement>('#videoLink')!.src = data.url
   } else {
     mediaSectionEl.innerHTML = imageSectionEl
     document.querySelector<HTMLAnchorElement>('#img-new-tab')!.href = data.hdurl
