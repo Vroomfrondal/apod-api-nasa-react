@@ -1,5 +1,9 @@
-/* Title, Date, media-credits, image-description below */
-.media-details-flex-wrapper {
+.body-container {
+  height: 75vh;
+}
+
+/* Body-header containing Image Title, Date, Author-credits */
+.media-details-flex-container {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -22,33 +26,92 @@
   margin: 0.5em;
 }
 
-.description-wrapper {
-  margin: 0.1rem auto 1rem;
-  width: 70%;
-  padding-bottom: 1rem;
+/* Body Starts here! */
+.horizontal-body-flex-container {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
 
-.media-description {
+/* Media Description  */
+.description-wrapper {
+  display: flex;
+  align-items: center;
+  width: 40vw;
+  margin-right: 6%;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
   text-align: center;
-  padding: 1rem;
-  line-height: 1.9rem;
+  padding: 1.1rem;
+  line-height: 1.5rem;
   border: 1px solid #f5f0f0f4;
   border-radius: 0.5rem;
   background-color: rgb(15, 15, 15);
-  color: #dcd9d9f4;
+  color: #bebabaf4;
   font-size: 1em;
+  max-height: 70vh;
 }
 
-/* Responsive Images and Videos from API response below */
+/* Image and Video */
 .media-section-wrapper {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  padding-left: 8%;
 }
 
 .image-div {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   border: 1px solid #fffffff4;
-  height: 60vh;
-  /* width: auto; */
+  height: 45vh;
+}
+
+/*
+  Media Queries Below
+*/
+@media (max-width: 1200px) {
+  .horizontal-body-flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Responsive Images and Videos from API response below */
+  .media-section-wrapper {
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .image-div {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #fffffff4;
+    height: 40vh;
+  }
+
+  .description-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .description {
+    text-align: center;
+    padding: 1rem;
+    line-height: 1.9rem;
+    border: 1px solid #f5f0f0f4;
+    border-radius: 0.5rem;
+    background-color: rgb(15, 15, 15);
+    color: #dcd9d9f4;
+    font-size: 1em;
+  }
 }
