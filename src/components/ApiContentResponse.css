@@ -60,6 +60,11 @@
 }
 
 /* Image and Video */
+
+#image_of_the_day {
+  max-width: 40vw;
+}
+
 .media-section-wrapper {
   display: flex;
   align-items: center;

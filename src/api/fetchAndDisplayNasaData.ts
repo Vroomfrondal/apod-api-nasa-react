@@ -40,7 +40,9 @@ const displayRequestedData = (data: any) => {
   // Title, Date, Photo Explanation
   titleEl.innerHTML = data.title
   dateEl.innerHTML = data.date
-  photoExplanationEl.innerHTML = data.explanation
+  if (data.copyright === '')
+    photoExplanationEl.innerHTML = 'No description provided'
+  else photoExplanationEl.innerHTML = data.explanation
 
   // Credit to NASA if media doesn't have author-credits
   if (data.copyright === undefined) copyrightEl.innerHTML = 'NASA'
