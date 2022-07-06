@@ -60,11 +60,6 @@
 }
 
 /* Image and Video */
-
-#image_of_the_day {
-  max-width: 40vw;
-}
-
 .media-section-wrapper {
   display: flex;
   align-items: center;
@@ -81,10 +76,19 @@
   max-width: auto;
 }
 
+.image-of-the-day {
+  max-width: 40vw;
+}
+
+.video-of-the-day {
+  height: 20rem;
+  width: 30rem;
+}
+
 /*
   Media Queries Below
 */
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   .horizontal-body-flex-container {
     display: flex;
     flex-direction: column;
@@ -92,7 +96,6 @@
 
   /* Responsive Images and Videos from API response below */
   .media-section-wrapper {
-    border: 2px solid red;
     display: flex;
     justify-content: center;
     padding: 0;
@@ -108,7 +111,7 @@
   .description-wrapper {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 65vw;
     padding: 0;
     margin: 0;
   }
