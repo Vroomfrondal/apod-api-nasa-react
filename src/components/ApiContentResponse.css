@@ -1,6 +1,6 @@
 .body-container {
   height: fit-content;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
 }
 
 /* Body-header containing Image Title, Date, Author-credits */
@@ -10,8 +10,8 @@
   text-align: center;
   line-height: 0rem;
   padding: 0.5rem;
+  padding-bottom: 1rem;
   color: #f5f0f0f4;
-  opacity: 95%;
   font-size: 0.9em;
 }
 
@@ -34,13 +34,14 @@
   justify-content: center;
   align-items: center;
   height: auto;
+  padding: 0;
 }
 
 /* Media Description  */
 .description-wrapper {
   display: flex;
   align-items: center;
-  width: 40vw;
+  width: 45vw;
   margin-right: 6%;
   margin-left: 1rem;
 }

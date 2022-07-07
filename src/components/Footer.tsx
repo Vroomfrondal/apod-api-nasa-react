@@ -5,7 +5,7 @@ import './Footer.css'
 function Footer() {
   return (
     <>
-      <footer className="footer-container">
+      <footer>
           <span className="footer-message"> Made with ❤️ by <a href="https://topherdeleon.com" rel="noreferrer" target="_blank">Topher</a>
           </span>
           
