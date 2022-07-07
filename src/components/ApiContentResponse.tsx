@@ -13,7 +13,7 @@ function ApiContentResponse() {
 
   return (
     <>
-      <div className="body-container">
+      <main className="body-container">
         <section className="media-details-flex-container">
           <h2 className="media-title" id="media-title">
             Loading...
@@ -34,7 +34,7 @@ function ApiContentResponse() {
             <p className="description" id="media-description"></p>
           </div>
         </section>
-      </div>
+      </main>
     </>
   )
 }

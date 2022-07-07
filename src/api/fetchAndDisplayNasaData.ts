@@ -7,7 +7,7 @@ const fetchData = async (url: string) => {
 
     if (apiResponse.status === 200) {
       const apiData = apiResponse.data
-      console.log(apiData)
+      console.log('NASA Data:',  apiData)
       displayRequestedData(apiData)
     } else
       throw new Error('Nasa seems to be having an issue with their server.')
@@ -27,21 +27,21 @@ const displayRequestedData = (data: any) => {
     '#media-section'
   ) as HTMLParagraphElement
   const imageSectionEl = `<div class="main-image-container">
-                              <a id="img-new-tab" href="" target="_blank" rel="noopener">
-                                <div class="image-wrapper"> 
-                                    <img id="image_of_the_day" src="" alt="image-by-nasa"> 
-                                </div>
-                              </a>
+                            <a id="img-new-tab" href="" target="_blank" rel="noopener">
+                              <div class="image-wrapper"> 
+                                <img class="image-of-the-day" id="image_of_the_day" src="" alt="image-by-nasa"> 
+                              </div>
+                            </a>
                           <div>` as any
   const videoSectionEl = `<div class="video-div"> 
-                              <iframe id="videoLink" src="" frameborder="0"></iframe>
+                            <iframe class="video-of-the-day" id="videoLink" src="" frameborder="0"></iframe>
                           </div>` as any
 
   // Title, Date, Photo Explanation
   titleEl.innerHTML = data.title
   dateEl.innerHTML = data.date
-  if (data.copyright === '')
-    photoExplanationEl.innerHTML = 'No description provided'
+  if (data.explanation === '')
+    photoExplanationEl.innerHTML = 'No description provided by NASA.'
   else photoExplanationEl.innerHTML = data.explanation
 
   // Credit to NASA if media doesn't have author-credits
