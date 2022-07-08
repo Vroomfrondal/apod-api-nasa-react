@@ -73,12 +73,13 @@
   display: flex;
   justify-content: center;
   border: 1px solid #fffffff4;
-  height: 45vh;
-  max-width: auto;
+  max-height: 20em;
+  max-width: 30em;
 }
 
 .image-of-the-day {
-  max-width: 40vw;
+  height: auto;
+  width: 100%;
 }
 
 .video-of-the-day {
