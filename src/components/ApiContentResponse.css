@@ -40,6 +40,7 @@
 /* Media Description  */
 .description-wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 45vw;
   margin-right: 6%;

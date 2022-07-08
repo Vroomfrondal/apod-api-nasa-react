@@ -1,15 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import dotenv from 'dotenv'
 import { fetchData } from '../api/fetchAndDisplayNasaData'
+import { Modal } from '../components/Modal'
 import './ApiContentResponse.css'
 
-function ApiContentResponse() {
+function ApiContentResponse({ children }: any) {
+  // Modal State
+  const [isOpen, setIsOpen] = useState(false)
+
   // Default API call onload
   useEffect(() => {
     const apiKey = process.env.REACT_APP_NASA_API_KEY!
     const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
     fetchData(baseUrl)
   }, [])
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen)
+  }
 
   return (
     <>
@@ -26,7 +34,12 @@ function ApiContentResponse() {
         </section>
 
         <section className="horizontal-body-flex-container">
-          <div className="media-section-wrapper" id="media-section">
+          <div
+            onClick={toggleModal}
+            className="media-section-wrapper"
+            id="media-section"
+          >
+            <Modal open={isOpen} />
             {/*   <!-- Media Response from API dynamically sets here --> */}
           </div>
 
