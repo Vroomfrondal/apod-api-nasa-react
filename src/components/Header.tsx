@@ -30,7 +30,6 @@ function Header() {
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedRandomDate}`!
 
     e.preventDefault()
-
     fetchData(randomURL)
   }
 

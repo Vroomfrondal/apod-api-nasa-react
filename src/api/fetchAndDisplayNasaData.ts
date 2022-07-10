@@ -12,6 +12,7 @@ const fetchData = async (url: string) => {
     } else
       throw new Error('Nasa seems to be having an issue with their server.')
   } catch (err) {
+    console.log(err)
     console.log('Nasa seems to be having an issue with their server.')
   }
 }
@@ -58,4 +59,4 @@ const displayRequestedData = (data: any) => {
   }
 }
 
-export { fetchData }
+export { fetchData, displayRequestedData }
