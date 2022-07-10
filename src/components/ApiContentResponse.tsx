@@ -49,9 +49,9 @@ function ApiContentResponse() {
             Fancy Modal
           </Modal>
 
-          {/* <div className="description-wrapper">
+          <div className="description-wrapper">
             <p className="description" id="media-description"></p>
-          </div> */}
+          </div>
         </section>
       </main>
     </>
