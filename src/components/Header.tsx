@@ -3,34 +3,43 @@ import DatePicker from 'react-datepicker'
 import dayjs from 'dayjs'
 import './Header.css'
 import { generateRandomDate } from '../utils/randomDate'
-import { fetchData } from '../api/fetchAndDisplayNasaData'
+import { fetchData, displayRequestedData } from '../api/fetchAndDisplayNasaData'
 const apiKey = process.env.REACT_APP_NASA_API_KEY!
+
+// TODO: use setTimeOut to wait for DOM elements
+// TODO Alternative: setup Loading screen to wait for dom elements
 
 function Header() {
   const [selectedDate, setSelectedDate] = useState(null)
 
   // Call API with datepicker's current state
-  useEffect(() => {
-    const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
-    const dateUrl =
-      `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`!
+  // useEffect(() => {
+  //   const defaultApiCallWrapper = async () => {
+  //     const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
+  //     const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`
 
-    fetchData(dateUrl)
-  }, [selectedDate])
+  //     const apiResponse = await fetchData(dateUrl)
+  //     console.log(apiResponse) // this is undefined?
+  //   }
 
-  const handleResetButton = () => {
+  //   setTimeout(() => {
+  //     defaultApiCallWrapper()
+  //   }, 3000)
+  // }, [selectedDate])
+
+  const handleResetButton = async () => {
     const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
-    fetchData(baseUrl)
+    displayRequestedData(await fetchData(baseUrl))
   }
 
-  const handleRandomButton = (e: any) => {
+  const handleRandomButton = async (e: any) => {
     const randomDate = generateRandomDate(new Date(1995, 6, 16), new Date())
     const formattedRandomDate = dayjs(randomDate).format('YYYY-MM-DD')
     const randomURL =
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedRandomDate}`!
 
     e.preventDefault()
-    fetchData(randomURL)
+    displayRequestedData(await fetchData(randomURL))
   }
 
   return (

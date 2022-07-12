@@ -6,18 +6,17 @@ const fetchData = async (url: string) => {
     const apiResponse = await axios.get(url)
 
     if (apiResponse.status === 200) {
-      const apiData = apiResponse.data
-      console.log('NASA Data:', apiData)
-      displayRequestedData(apiData)
+      const apiData = await apiResponse.data
+      // console.log('NASA Data:', apiData)
+      return apiData
     } else
       throw new Error('Nasa seems to be having an issue with their server.')
   } catch (err) {
     console.log(err)
-    console.log('Nasa seems to be having an issue with their server.')
   }
 }
 
-const displayRequestedData = (data: any) => {
+const displayRequestedData = async (data: any) => {
   const dateEl = document.querySelector('#media-date') as HTMLParagraphElement
   const titleEl = document.querySelector('#media-title') as HTMLHeadingElement
   const copyrightEl = document.querySelector('#media-copyright') as HTMLElement
@@ -53,7 +52,6 @@ const displayRequestedData = (data: any) => {
     document.querySelector<HTMLVideoElement>('#videoLink')!.src = data.url
   } else {
     mediaSectionEl.innerHTML = imageSectionEl
-    // document.querySelector<HTMLDivElement>('#main-image-container')!.href = data.hdurl
     document.querySelector<HTMLImageElement>('#image_of_the_day')!.src =
       data.url
   }
