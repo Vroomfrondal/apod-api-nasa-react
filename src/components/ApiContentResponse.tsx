@@ -1,27 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import dotenv from 'dotenv'
-import { fetchData, displayRequestedData } from '../api/fetchAndDisplayNasaData'
+import React, { useState } from 'react'
 import { Modal } from '../components/Modal'
 import './ApiContentResponse.css'
 
-function ApiContentResponse() {
+function ApiContentResponse(props: any) {
   // Modal
   const [openStatus, setOpenStatus] = useState(false)
-  const [description, setDescription] = useState('Fancy modal :D')
-
-  // TODO: Confirm you're setting state correctly
-  // ! Fix Header datepicker call
-  useEffect(() => {
-    const fetchToday = async () => {
-      const apiKey = process.env.REACT_APP_NASA_API_KEY!
-      const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
-
-      const data = await fetchData(baseUrl)
-      displayRequestedData(data)
-      setDescription(data.explanation)
-    }
-    fetchToday().catch(console.error)
-  }, [])
 
   return (
     <>
@@ -52,7 +35,7 @@ function ApiContentResponse() {
               setOpenStatus(false)
             }}
           >
-            {description}
+            {props.data.explanation}
           </Modal>
 
           <div className="description-wrapper">

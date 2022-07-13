@@ -39,7 +39,7 @@
 
 /* Media Description  */
 .description-wrapper {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 40vw;
@@ -47,7 +47,7 @@
 }
 
 .description {
-  display: flex;
+  display: none;
   justify-content: center;
   text-align: center;
   padding: 1.1rem;
@@ -63,9 +63,9 @@
 /* Image and Video */
 .media-section-wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: auto;
-  padding-right: 1em;
 }
 
 .image-wrapper {

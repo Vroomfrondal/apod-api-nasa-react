@@ -7,7 +7,6 @@ const fetchData = async (url: string) => {
 
     if (apiResponse.status === 200) {
       const apiData = await apiResponse.data
-      // console.log('NASA Data:', apiData)
       return apiData
     } else
       throw new Error('Nasa seems to be having an issue with their server.')

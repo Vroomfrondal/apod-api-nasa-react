@@ -18,3 +18,17 @@
   padding: 2rem;
   z-index: 1000;
 }
+
+.modal-description {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 1.1rem;
+  line-height: 1.5rem;
+  border: 1px solid #f5f0f0f4;
+  border-radius: 0.5rem;
+  background-color: rgb(15, 15, 15);
+  color: #bebabaf4;
+  font-size: 1em;
+  max-height: 70vh;
+}

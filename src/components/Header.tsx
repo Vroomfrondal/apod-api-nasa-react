@@ -6,40 +6,42 @@ import { generateRandomDate } from '../utils/randomDate'
 import { fetchData, displayRequestedData } from '../api/fetchAndDisplayNasaData'
 const apiKey = process.env.REACT_APP_NASA_API_KEY!
 
-// TODO: use setTimeOut to wait for DOM elements
-// TODO Alternative: setup Loading screen to wait for dom elements
+function Header(props: any) {
+  const [selectedDate, setSelectedDate] = useState(new Date())
 
-function Header() {
-  const [selectedDate, setSelectedDate] = useState(null)
+  // Datepicker side-effect
+  useEffect(() => {
+    console.log('Header datepicker side effect hook ran')
+    const defaultApiCallWrapper = async () => {
+      const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
+      const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`
+      const data = await fetchData(dateUrl)
 
-  // Call API with datepicker's current state
-  // useEffect(() => {
-  //   const defaultApiCallWrapper = async () => {
-  //     const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
-  //     const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`
+      props.fetchedRandomData(data)
+      displayRequestedData(data)
+    }
+    defaultApiCallWrapper()
+  }, [selectedDate])
 
-  //     const apiResponse = await fetchData(dateUrl)
-  //     console.log(apiResponse) // this is undefined?
-  //   }
-
-  //   setTimeout(() => {
-  //     defaultApiCallWrapper()
-  //   }, 3000)
-  // }, [selectedDate])
-
-  const handleResetButton = async () => {
+  const handleResetButton = async (e: any) => {
+    e.preventDefault()
     const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
-    displayRequestedData(await fetchData(baseUrl))
+    const data = await fetchData(baseUrl)
+
+    props.fetchedRandomData(data)
+    displayRequestedData(data)
   }
 
   const handleRandomButton = async (e: any) => {
+    e.preventDefault()
     const randomDate = generateRandomDate(new Date(1995, 6, 16), new Date())
     const formattedRandomDate = dayjs(randomDate).format('YYYY-MM-DD')
     const randomURL =
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedRandomDate}`!
+    const data = await fetchData(randomURL)
 
-    e.preventDefault()
-    displayRequestedData(await fetchData(randomURL))
+    props.fetchedRandomData(data)
+    displayRequestedData(data)
   }
 
   return (
@@ -71,7 +73,6 @@ function Header() {
             dateFormat="yyyy-MM-dd"
             className="datepicker-input-custom-text"
             id="datepicker-input"
-            isClearable
             showYearDropdown
             minDate={new Date('1995-06-16')}
             maxDate={new Date()}
