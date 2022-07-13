@@ -31,6 +31,7 @@ function Header(props: any) {
     const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
     const data = await fetchData(baseUrl)
 
+    props.fetchedRandomData(data)
     displayRequestedData(data)
   }
 
