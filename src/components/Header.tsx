@@ -8,23 +8,20 @@ const apiKey = process.env.REACT_APP_NASA_API_KEY!
 
 function Header(props: any) {
   const [selectedDate, setSelectedDate] = useState(new Date())
-  // const [nasaData, setNasaData] = useState({})
 
-  // Call API with datepicker's current state
-  // useEffect(() => {
-  //   console.log('Header datepicker side effect hook ran')
-  //   const defaultApiCallWrapper = async () => {
-  //     const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
-  //     const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`
-  //     const data = await fetchData(dateUrl)
+  // Datepicker side-effect
+  useEffect(() => {
+    console.log('Header datepicker side effect hook ran')
+    const defaultApiCallWrapper = async () => {
+      const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
+      const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`
+      const data = await fetchData(dateUrl)
 
-  //     displayRequestedData(data)
-  //   }
-
-  //   setTimeout(() => {
-  //     defaultApiCallWrapper()
-  //   }, 3000)
-  // }, [selectedDate])
+      props.fetchedRandomData(data)
+      displayRequestedData(data)
+    }
+    defaultApiCallWrapper()
+  }, [selectedDate])
 
   const handleResetButton = async (e: any) => {
     e.preventDefault()
@@ -76,7 +73,6 @@ function Header(props: any) {
             dateFormat="yyyy-MM-dd"
             className="datepicker-input-custom-text"
             id="datepicker-input"
-            isClearable
             showYearDropdown
             minDate={new Date('1995-06-16')}
             maxDate={new Date()}
