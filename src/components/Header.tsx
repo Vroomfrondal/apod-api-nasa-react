@@ -6,20 +6,19 @@ import { generateRandomDate } from '../utils/randomDate'
 import { fetchData, displayRequestedData } from '../api/fetchAndDisplayNasaData'
 const apiKey = process.env.REACT_APP_NASA_API_KEY!
 
-// TODO: use setTimeOut to wait for DOM elements
-// TODO Alternative: setup Loading screen to wait for dom elements
-
-function Header() {
-  const [selectedDate, setSelectedDate] = useState(null)
+function Header(props: any) {
+  const [selectedDate, setSelectedDate] = useState(new Date())
+  // const [nasaData, setNasaData] = useState({})
 
   // Call API with datepicker's current state
   // useEffect(() => {
+  //   console.log('Header datepicker side effect hook ran')
   //   const defaultApiCallWrapper = async () => {
   //     const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
   //     const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`
+  //     const data = await fetchData(dateUrl)
 
-  //     const apiResponse = await fetchData(dateUrl)
-  //     console.log(apiResponse) // this is undefined?
+  //     displayRequestedData(data)
   //   }
 
   //   setTimeout(() => {
@@ -27,19 +26,24 @@ function Header() {
   //   }, 3000)
   // }, [selectedDate])
 
-  const handleResetButton = async () => {
+  const handleResetButton = async (e: any) => {
+    e.preventDefault()
     const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`!
-    displayRequestedData(await fetchData(baseUrl))
+    const data = await fetchData(baseUrl)
+
+    displayRequestedData(data)
   }
 
   const handleRandomButton = async (e: any) => {
+    e.preventDefault()
     const randomDate = generateRandomDate(new Date(1995, 6, 16), new Date())
     const formattedRandomDate = dayjs(randomDate).format('YYYY-MM-DD')
     const randomURL =
       `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedRandomDate}`!
+    const data = await fetchData(randomURL)
 
-    e.preventDefault()
-    displayRequestedData(await fetchData(randomURL))
+    props.fetchedRandomData(data)
+    displayRequestedData(data)
   }
 
   return (
