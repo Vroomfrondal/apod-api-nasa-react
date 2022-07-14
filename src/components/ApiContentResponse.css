@@ -78,6 +78,7 @@
 }
 
 .image-of-the-day {
+  cursor: pointer;
   height: auto;
   width: 100%;
 }

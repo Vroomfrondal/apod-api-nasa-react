@@ -8,7 +8,9 @@ function Modal({ open, onClose, children }: any) {
     <>
       <div className="blackout-background-modal-container"></div>
       <div className="modal-container">
-        <button onClick={onClose}>Hide</button>
+        <button onClick={onClose} className="modal-exit-button">
+          X
+        </button>
         <p className="modal-description">{children}</p>
       </div>
     </>
