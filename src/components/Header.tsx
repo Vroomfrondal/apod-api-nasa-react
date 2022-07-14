@@ -11,7 +11,6 @@ function Header(props: any) {
 
   // Datepicker side-effect
   useEffect(() => {
-    console.log('Header datepicker side effect hook ran')
     const defaultApiCallWrapper = async () => {
       const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD')
       const dateUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${formattedDate}`
