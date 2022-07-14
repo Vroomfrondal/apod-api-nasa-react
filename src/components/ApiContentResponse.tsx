@@ -25,18 +25,17 @@ function ApiContentResponse(props: any) {
             onClick={() => {
               setOpenStatus(true)
             }}
-          >
-            {/*   <!-- Media Response from API dynamically sets here --> */}
-          </div>
+          ></div>
 
           <Modal
             open={openStatus}
             onClose={() => {
               setOpenStatus(false)
             }}
-          >
-            {props.data.explanation}
-          </Modal>
+            image={props.data.url}
+            description={props.data.explanation}
+            hdImg={props.data.hdurl}
+          ></Modal>
 
           <div className="description-wrapper">
             <p className="description" id="media-description"></p>

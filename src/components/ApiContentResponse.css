@@ -66,25 +66,33 @@
   justify-content: center;
   align-items: center;
   height: auto;
+  padding-bottom: 2rem;
 }
 
 .image-wrapper {
   display: flex;
   justify-content: center;
   border: 1px solid #fffffff4;
-  max-height: fit-content;
-  max-width: 30em;
-  margin-bottom: 1rem;
+  height: auto;
+  width: fit-content;
+  object-fit: cover;
 }
 
 .image-of-the-day {
+  cursor: pointer;
   height: auto;
-  width: 100%;
+  width: auto;
+  max-height: 50vh;
+}
+
+.image-of-the-day:hover {
+  color: white;
+  content: 'This is a hint';
 }
 
 .video-of-the-day {
-  height: 20rem;
-  width: 30rem;
+  height: 22rem;
+  width: 35rem;
 }
 
 /*
@@ -106,7 +114,7 @@
   .image-wrapper {
     display: flex;
     justify-content: center;
-    border: 1px solid #fffffff4;
+    border: 1px solid #f5f0f0f4;
     height: 40vh;
   }
 

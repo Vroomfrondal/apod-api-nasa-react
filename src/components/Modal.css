@@ -8,27 +8,108 @@
   z-index: 1000;
 }
 
-.modal-container {
-  position: fixed;
+.modal-flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
   top: 50%;
+  width: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(15, 15, 15);
-  border: 1px solid #f6f0f0f4;
+  border: 1px solid #f5f0f0f4;
   padding: 2rem;
   z-index: 1000;
+  height: fit-content;
+  max-width: 100%;
+}
+
+/* Modal Media Styling Begins */
+.modal-media-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 85vh;
+}
+
+.modal-image {
+  object-fit: cover;
+  border: 1px solid #f5f0f0f4;
+  width: 55%;
+  margin-right: 1rem;
+  max-height: 80vh;
 }
 
 .modal-description {
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 1.1rem;
+  padding: 1rem;
   line-height: 1.5rem;
   border: 1px solid #f5f0f0f4;
   border-radius: 0.5rem;
   background-color: rgb(15, 15, 15);
   color: #bebabaf4;
   font-size: 1em;
-  max-height: 70vh;
+  width: 30rem;
+  height: fit-content;
+  overflow: auto;
 }
+
+/* Modal Media Styling Ends */
+
+/* Button Styling Begins */
+.hide-modal-button-flex-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.hide-modal-button {
+  display: inline-flex;
+  width: 100%;
+  height: 3rem;
+  perspective: 1000px;
+  margin-left: 80%;
+}
+
+.hide-modal-button a {
+  font-size: 0.2em;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform 0.25s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hide-modal-button a:before,
+.hide-modal-button a:after {
+  position: absolute;
+  content: 'HIDE';
+  height: 3rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f5f0f0f4;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.hide-modal-button a:before {
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+.hide-modal-button a:after {
+  color: rgb(216, 210, 210);
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+.hide-modal-button a:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+/* Button Styling Ends */
