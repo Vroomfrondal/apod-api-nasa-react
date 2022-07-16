@@ -85,11 +85,6 @@
   max-height: 50vh;
 }
 
-.image-of-the-day:hover {
-  color: white;
-  content: 'This is a hint';
-}
-
 .video-of-the-day {
   height: 22rem;
   width: 35rem;

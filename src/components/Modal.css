@@ -14,7 +14,7 @@
   align-items: center;
   position: absolute;
   top: 50%;
-  width: 75%;
+  width: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(15, 15, 15);
@@ -39,6 +39,7 @@
   width: 55%;
   margin-right: 1rem;
   max-height: 80vh;
+  cursor: pointer;
 }
 
 .modal-description {
