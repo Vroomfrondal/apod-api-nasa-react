@@ -57,7 +57,6 @@
   background-color: rgb(15, 15, 15);
   color: #bebabaf4;
   font-size: 1em;
-  max-height: 70vh;
 }
 
 /* Image and Video */
@@ -98,7 +97,7 @@
 /*
   Media Queries Below
 */
-@media (max-width: 1000px) {
+@media only screen and (max-width: 1000px) {
   .horizontal-body-flex-container {
     display: flex;
     flex-direction: column;
@@ -118,10 +117,16 @@
     height: 40vh;
   }
 
+  .image-of-the-day:hover {
+    opacity: 100%;
+    transition: 0s;
+  }
+
   .description-wrapper {
     display: flex;
     justify-content: center;
-    width: 65vw;
+    align-items: center;
+    width: 75vw;
     padding: 0;
     margin: 0;
   }
@@ -130,11 +135,51 @@
     display: block;
     text-align: center;
     padding: 1rem;
-    line-height: 1.9rem;
+    line-height: 1.7rem;
     border: 1px solid #f5f0f0f4;
     border-radius: 0.5rem;
     background-color: rgb(15, 15, 15);
     color: #dcd9d9f4;
+    font-size: 1em;
+  }
+}
+
+/* Iphone X, Iphone 8-6 */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .horizontal-body-flex-container {
+    height: 100%;
+  }
+
+  .media-section-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #fffffff4;
+    height: auto;
+    width: fit-content;
+    object-fit: cover;
+  }
+
+  .image-of-the-day {
+    cursor: none;
+    height: auto;
+    max-height: 50vh;
+    width: 20rem;
+  }
+
+  .description-wrapper {
+    width: 85vw;
+  }
+
+  .description {
+    padding: 1rem;
     font-size: 1em;
   }
 }

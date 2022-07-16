@@ -25,7 +25,7 @@
   max-width: 100%;
 }
 
-/* Modal Media Styling Begins */
+/* Modal Media-Content Styling Begins */
 .modal-media-container {
   display: flex;
   align-items: center;
@@ -50,7 +50,6 @@
 .modal-description {
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
   padding: 1rem;
   line-height: 1.5rem;
@@ -59,8 +58,9 @@
   background-color: rgb(15, 15, 15);
   color: #bebabaf4;
   font-size: 1em;
-  width: 30rem;
+  width: 45rem;
   height: fit-content;
+  max-height: 70vh;
   overflow: auto;
 }
 
@@ -119,3 +119,14 @@
   transform: translateZ(-25px) rotateX(-90deg);
 }
 /* Button Styling Ends */
+
+/* MediaQueries */
+@media (max-width: 1000px) {
+  /* Disable Modal in mobile since we display description in mobile-viewport */
+  .blackout-background-modal-container,
+  .modal-flex-container,
+  .modal-media-container,
+  .modal-description {
+    display: none;
+  }
+}
