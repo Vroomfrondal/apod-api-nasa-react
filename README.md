@@ -1,5 +1,7 @@
 # APOD-API-NASA
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7b69270c-793a-4e38-86bb-eafd4ff353f1/deploy-status)](https://app.netlify.com/sites/photos-of-our-galaxy/deploys)
+
 A web-based application to display a picture of the day provided by NASA's 'Picture of the Day' API. Or you can choose a date from the past. Works for both images and videos.
 
 **Built using:**
