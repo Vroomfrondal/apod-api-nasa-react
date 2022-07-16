@@ -114,14 +114,16 @@
     display: flex;
     justify-content: center;
     border: 1px solid #f5f0f0f4;
-    height: 40vh;
+    height: fit-content;
   }
 
+  /* Make image responsive */
   .image-of-the-day {
     cursor: none;
     height: auto;
-    max-height: 50vh;
-    width: fit-content;
+    width: auto;
+    max-width: auto;
+    height: 40vh;
   }
 
   .image-of-the-day:hover {
@@ -152,7 +154,7 @@
 }
 
 /* Iphone X, Iphone 8-6 */
-@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (device-width: 375px) and (device-height: 812px) {
   .horizontal-body-flex-container {
     height: 100%;
   }
