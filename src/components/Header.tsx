@@ -48,7 +48,7 @@ function Header(props: any) {
       <header>
         <div className="title-wrapper">
           <h1 className="title">Astronomical Picture of the Day</h1>
-          <p>
+          <p className="subtitle">
             Explore the{' '}
             <a
               target="_blank"

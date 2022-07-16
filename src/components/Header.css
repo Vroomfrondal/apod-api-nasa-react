@@ -136,3 +136,14 @@ header {
 .reset-picture-button:active {
   top: 1px;
 }
+
+/* Mobile Queries: Iphone X, Iphone 8-6 */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
+}

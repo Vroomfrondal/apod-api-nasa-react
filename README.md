@@ -10,5 +10,9 @@ A web-based application to display a picture of the day provided by NASA's 'Pict
 - Typescript
 - ReactJS
 
-**Sample Photo**
-![Screen Shot 2022-07-06 at 7 22 10 PM](https://user-images.githubusercontent.com/49052244/177663663-27d9eefc-05fa-4bdf-876b-9ce636287a42.png)
+**Sample Photos:**
+![Screenshot](https://user-images.githubusercontent.com/49052244/179371122-408a82dd-5f5b-412c-ab08-ca6ec876c9f9.png)
+
+![Screenshot-1](https://user-images.githubusercontent.com/49052244/179371139-37ebad19-c777-4af4-93eb-0fb44d53cbd8.png)
+
+![Screenshot-2](https://user-images.githubusercontent.com/49052244/179371169-0c6001fb-c9e3-44eb-90a4-a4417e36c526.png)
