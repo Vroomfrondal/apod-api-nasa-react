@@ -39,7 +39,12 @@
   width: 55%;
   margin-right: 1rem;
   max-height: 80vh;
+}
+
+.modal-image:hover {
   cursor: pointer;
+  opacity: 75%;
+  transition: 0.4s;
 }
 
 .modal-description {

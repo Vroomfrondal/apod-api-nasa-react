@@ -85,6 +85,11 @@
   max-height: 50vh;
 }
 
+.image-of-the-day:hover {
+  opacity: 60%;
+  transition: 0.4s;
+}
+
 .video-of-the-day {
   height: 22rem;
   width: 35rem;
@@ -122,6 +127,7 @@
   }
 
   .description {
+    display: block;
     text-align: center;
     padding: 1rem;
     line-height: 1.9rem;
