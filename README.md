@@ -11,6 +11,7 @@ A web-based application to display a picture of the day provided by NASA's 'Pict
 - Vanilla CSS
 - Typescript
 - ReactJS
+- Mobile (iPhone 8-11) & Desktop Queries for cross-platform compability
 
 **Sample Photos:**
 ![Screenshot](https://user-images.githubusercontent.com/49052244/179371122-408a82dd-5f5b-412c-ab08-ca6ec876c9f9.png)
