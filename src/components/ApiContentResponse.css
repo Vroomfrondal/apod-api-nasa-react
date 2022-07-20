@@ -15,6 +15,12 @@
   font-size: 0.9em;
 }
 
+.main-image-container:hover {
+  cursor: pointer;
+  opacity: 80%;
+  transition: 0.4s;
+}
+
 .media-title {
   margin-top: 0.4em;
 }
@@ -78,27 +84,25 @@
   object-fit: cover;
 }
 
+.image-of-the-day-mobile {
+  pointer-events: none;
+}
+
 .image-of-the-day {
+  pointer-events: none;
   cursor: pointer;
   height: auto;
   width: fit-content;
   max-width: 95vw;
   height: 30rem;
   max-height: 50vh;
-}
-
-.image-of-the-day:hover {
-  opacity: 60%;
-  transition: 0.4s;
+  pointer-events: none;
+  text-decoration: none;
 }
 
 .video-div {
   display: flex;
-  /* justify-content: center; */
   border: 1px solid #fffffff4;
-  /* height: auto; */
-  /* width: fit-content; */
-  /* object-fit: cover; */
 }
 
 /* 2011-12-06  */
@@ -130,18 +134,16 @@
     height: fit-content;
   }
 
+  .image-of-the-day-mobile {
+    pointer-events: all;
+  }
+
   /* Make image responsive */
   .image-of-the-day {
-    cursor: none;
     height: auto;
     width: auto;
     max-width: auto;
     height: 40vh;
-  }
-
-  .image-of-the-day:hover {
-    opacity: 100%;
-    transition: 0s;
   }
 
   iframe {
@@ -191,6 +193,10 @@
     height: auto;
     width: fit-content;
     object-fit: cover;
+  }
+
+  .image-of-the-day-mobile {
+    pointer-events: all;
   }
 
   .image-of-the-day {

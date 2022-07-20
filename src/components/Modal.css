@@ -25,7 +25,7 @@
   max-width: 100%;
 }
 
-/* Modal Media-Content Styling Begins */
+/* Modal Content Styling Begins */
 .modal-media-container {
   display: flex;
   align-items: center;
@@ -60,25 +60,27 @@
   font-size: 1em;
   width: 45rem;
   height: fit-content;
-  max-height: 70vh;
+  max-height: 55vh;
   overflow: auto;
 }
-
 /* Modal Media Styling Ends */
 
 /* Button Styling Begins */
 .hide-modal-button-flex-container {
   display: flex;
   justify-content: center;
-  width: 100vw;
+  position: relative;
+  width: 100%;
+  height: 3rem;
 }
 
 .hide-modal-button {
+  position: absolute;
   display: inline-flex;
   width: 100%;
   height: 3rem;
   perspective: 1000px;
-  margin-left: 80%;
+  left: 93%;
 }
 
 .hide-modal-button a {
