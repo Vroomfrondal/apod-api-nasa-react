@@ -26,9 +26,11 @@ const displayRequestedData = async (data: any) => {
     '#media-section'
   ) as HTMLParagraphElement
   const imageSectionEl = `<div class="main-image-container">
-                              <div class="image-wrapper"> 
-                                <img class="image-of-the-day" id="image_of_the_day" src="" alt="image-by-nasa"> 
-                              </div>
+                              <a id="hdimg" href="" target="_blank" rel="noopener" class="image-of-the-day-mobile">
+                                <div class="image-wrapper">
+                                  <img class="image-of-the-day" id="image_of_the_day" src="" alt="image-by-nasa"> 
+                                </div>
+                              </a>
                           <div>` as any
   const videoSectionEl = `<div class="video-div"> 
                             <iframe class="video-of-the-day" id="videoLink" src="" frameborder="0"></iframe>
@@ -51,6 +53,7 @@ const displayRequestedData = async (data: any) => {
     document.querySelector<HTMLVideoElement>('#videoLink')!.src = data.url
   } else {
     mediaSectionEl.innerHTML = imageSectionEl
+    document.querySelector<HTMLAnchorElement>('#hdimg')!.href = data.hdurl
     document.querySelector<HTMLImageElement>('#image_of_the_day')!.src =
       data.url
   }

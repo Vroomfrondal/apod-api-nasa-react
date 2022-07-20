@@ -9,7 +9,7 @@ function Footer() {
           <span className="footer-message"> Made with ❤️ by <a href="https://topherdeleon.com" rel="noreferrer" target="_blank">Topher</a>
           </span>
           
-          <a href="https://www.github.com/vroomfrondal" rel="noreferrer" target="_blank">
+          <a href="https://github.com/Vroomfrondal/apod-api-nasa-react" rel="noreferrer" target="_blank">
             <FaGithub className="footer-socials-logos" />
           </a>
           <a href="https://www.linkedin.com/in/topherdeleon/" rel="noreferrer" target="_blank">
